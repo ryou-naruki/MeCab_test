@@ -19,7 +19,7 @@ for i in text_paths:
         content = unicodedata.normalize('NFKC', content)
 
         documents.append(content)
-# print(documents)
+print(documents)
 
 
 
@@ -39,9 +39,7 @@ for sentence in documents:
     sentence_parced = tagger.parse(sentence)
     words_in_sentence = []
 
-    
-
-   # print(sentence_parced)
+    print(sentence_parced)
     for line in sentence_parced.splitlines()[:-1]:
         words_in_sentence.append(line.split('\t')[0])
         if line.split('\t')[0] not in word2int:
@@ -51,17 +49,12 @@ for sentence in documents:
     print(words_in_sentence)
     
 
-# columns = ['表層形', '品詞', '品詞細分類1', '品詞細分類2', '品詞細分類3', '活用形', '活用形', '原形', '読み', '発音']
-# mecab_df = pd.DataFrame(data=words_list)
-# print(mecab_df)
-
 
 # BoWを作る
 bow = np.zeros((len(words_list), len(word2int)), dtype=np.int64)
 for i, words in enumerate(words_list):
     for word in words:
         bow[i, word2int[word]] += 1
-
 
 # pandas形式にする
 df_bow = pd.DataFrame(bow, columns=list(word2int))
