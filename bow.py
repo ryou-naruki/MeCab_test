@@ -48,6 +48,8 @@ for sentence in documents:
             word2int[line.split('\t')[0]] = i
             i += 1
     words_list.append(words_in_sentence)
+    print(words_in_sentence)
+    
 
 # columns = ['表層形', '品詞', '品詞細分類1', '品詞細分類2', '品詞細分類3', '活用形', '活用形', '原形', '読み', '発音']
 # mecab_df = pd.DataFrame(data=words_list)
