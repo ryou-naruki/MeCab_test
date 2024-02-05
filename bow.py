@@ -61,3 +61,4 @@ df_bow = pd.DataFrame(bow, columns=list(word2int))
 
 # 表示(Jupyterで回す場合は、displayのほうが見やすい形式で出力できる)
 print(df_bow)
+
